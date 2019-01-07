@@ -15,7 +15,7 @@ threads.
 self afterwards.
 
 ### Hints and Solution
-If you get stuck, need hints, or simply want to see a solution, check out the "solution" branch of this project.
+If you get stuck, need hints, or simply want to see a solution, check out the ``solution`` branch of this project.
 
 ## Steps
 
@@ -91,6 +91,8 @@ modify the GUI button to accept these as well. These variables are how your thre
     * Use "event.clear()" and "event.wait()" so it only generates a number when told to by the gui.
     * Set the shared_int value to this newly generated value.
     * Use "event.set()" to let the GUI thread know a random value has been generated.
+    * Use the run_bool value to keep this thread alive until GUI exits.
+    * When this function exits, it should return an array of all random values generated during life of thread.
 4) Update the button in the GUI. On click, the button should:
     * Use "event.set()" to tell the random generator a new value is needed.
     * Use "event.clear()" and "event.wait()" to wait until the generator has a new value.
