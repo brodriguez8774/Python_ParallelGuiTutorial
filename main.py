@@ -21,21 +21,21 @@ logger = resources.logging.get_logger(__name__)
 if __name__ == '__main__':
     logger.info('Starting program.')
 
-    # Step 1.
-    logger.info('Step 1')
-    interface = wx.App()
-    step_1_gui.WindowFrame(None, title='wxPython Parallelization', size=(600, 400))
-    interface.MainLoop()
-    logger.info('')
+    # # Step 1.
+    # logger.info('Step 1')
+    # interface = wx.App()
+    # step_1_gui.WindowFrame(None, title='wxPython Parallelization', size=(600, 400))
+    # interface.MainLoop()
+    # logger.info('')
 
-    # Step 2.
-    logger.info('Step 2')
-    parallel_test = step_2_parallelization.parallelization()
-    logger.info('')
+    # # Step 2.
+    # logger.info('Step 2')
+    # parallel_test = step_2_parallelization.parallelization()
+    # logger.info('')
 
-    # Step 3.
-    logger.info('Step 3')
-    parallel_gui = step_3_parallelization.GuiThreading()
-    logger.info('')
+    # # Step 3.
+    # logger.info('Step 3')
+    # parallel_gui = step_3_parallelization.GuiThreading()
+    # logger.info('')
 
     logger.info('Terminating Program.')
