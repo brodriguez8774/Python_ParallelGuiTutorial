@@ -7,7 +7,8 @@ import wx
 
 # User Class Imports.
 import resources.logging
-from resources import gui, paralellization
+from step_1 import gui
+from step_2 import paralellization
 
 
 # Initialize logging.
@@ -22,9 +23,10 @@ if __name__ == '__main__':
     # gui.WindowFrame(None, title='wxPython Parallelization', size=(600, 400))
     # interface.MainLoop()
 
-    # Step 2.
-    parallel_test = paralellization.Paralellization()
+    # # Step 2.
+    # parallel_test = paralellization.Paralellization()
 
     # Step 3.
+
 
     logger.info('Terminating Program.')
