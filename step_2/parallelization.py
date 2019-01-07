@@ -15,7 +15,7 @@ import resources.logging
 logger = resources.logging.get_logger(__name__)
 
 
-class Paralellization():
+class parallelization():
     def __init__(self):
         logger.info('Creating multiprocess pool.')
 

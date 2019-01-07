@@ -52,7 +52,7 @@ object.
 
 #### Before we Start
 Before we start, there are some important things to note about parallelization in Python:
-* There are a few ways to implement paralellization, but the easiest is probably through the ``multiprocessing`` system
+* There are a few ways to implement parallelization, but the easiest is probably through the ``multiprocessing`` system
 library.
 * The ``multiprocessing`` library can implement either multiprocessing or multithreading.
     * Standard ``multiprocessing`` is used to implement multiprocessing.
@@ -65,7 +65,7 @@ library.
         started. Each value in this iterable is treated as args for the given thread.
 
 #### Implementing Multi-processing
-In ``step_2/paralellization.py`` there is a partially established multiprocess class. All the shared variables you need
+In ``step_2/parallelization.py`` there is a partially established multiprocess class. All the shared variables you need
 should already be provided.
 1) Flesh out the ``generate_random_number`` function to generate a random int from 0 through 9.
     * Hint: Use ``random.randint``
