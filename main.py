@@ -9,6 +9,7 @@ import wx
 import resources.logging
 from step_1 import gui
 from step_2 import paralellization
+from step_3 import gui, parallelization
 
 
 # Initialize logging.
@@ -26,7 +27,7 @@ if __name__ == '__main__':
     # # Step 2.
     # parallel_test = paralellization.Paralellization()
 
-    # Step 3.
-
+    # # Step 3.
+    # parallel_gui = parallelization.GuiThreading()
 
     logger.info('Terminating Program.')

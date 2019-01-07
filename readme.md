@@ -5,7 +5,17 @@
 Brandon Rodriguez
 
 ## About This Program
-A tutorial to help understanding of Parallelization and wxPython GUI's.
+A tutorial to help understanding of Parallelization and wxPython GUI's. Written and tested in Python Version 3.5.
+
+This program has 3 major steps:
+1) Creating a GUI that updates on button press.
+2) Creating a multiprocessing pool which essentially creates and reads randomly generated ints through separate process
+threads.
+3) Combine the above two. Results in a threaded GUI that calls a separate thread to create a random int. GUI updates
+self afterwards.
+
+### Hints and Solution
+If you get stuck, need hints, or simply want to see a solution, check out the "solution" branch of this project.
 
 ## Steps
 
@@ -21,7 +31,7 @@ panels). Panels can also resize automatically as the window frame resizes.
     layout. The more complex the layout, the more panels are generally required.
 
 #### Creating the GUI
-In ``resources/gui.py`` there is a partially established wxPython gui.
+In ``step_1/gui.py`` there is a partially established wxPython gui.
 1) Try creating a second "bottom row" for the GUI. Use the already present "top row" as a reference if needed.
     * In this row, add a button for the user to click.
     * On creation, the button should be passed a dictionary object, which will be used to allow the button to reference
@@ -55,7 +65,8 @@ library.
         started. Each value in this iterable is treated as args for the given thread.
 
 #### Implementing Multi-processing
-In ``resources/paralellization.py`` there is a partially established multiprocess class.
+In ``step_2/paralellization.py`` there is a partially established multiprocess class. All the shared variables you need
+should already be provided.
 1) Flesh out the ``generate_random_number`` function to generate a random int from 0 through 9.
     * Hint: Use ``random.randint``
 2) Update thread calling so that half of the 10 threads call one function, the other half call a different one.
@@ -70,4 +81,21 @@ that is not -1).
 6) Finally, when each thread exits, it should return the value inserted or removed from the shared array.
 
 ### Step 3 - Combining Parallelization into the Gui
-
+Now copy your GUI file from step one into the ``step_3`` folder. As in step 2, there is a partially established
+multiprocess class. All shared variables you need should be already provided.
+1) This time, we want exactly two threads. In the multiprocessing class, update the ``thread_gui()`` function to call
+your newly copied GUI.
+2) You'll want to modify your GUI kwargs to accept the "run_bool", "shared_int", "shared_event" thread variables. Also
+modify the GUI button to accept these as well. These variables are how your threads will communicate.
+3) Update the ``generate_random_number()`` function:
+    * Use "event.clear()" and "event.wait()" so it only generates a number when told to by the gui.
+    * Set the shared_int value to this newly generated value.
+    * Use "event.set()" to let the GUI thread know a random value has been generated.
+4) Update the button in the GUI. On click, the button should:
+    * Use "event.set()" to tell the random generator a new value is needed.
+    * Use "event.clear()" and "event.wait()" to wait until the generator has a new value.
+        * NOTE: Normally in a GUI thread, you wouldn't want to block logic like this. However, in this example, the
+        logic is simple enough that the block is trivial, and more importantly, it shows having two threads wait for
+        each other at different steps of communication.
+    * Finally, update the actual text on the GUI to display the newly generated random value from the other thread.
+5) For added clarity and/or debugging purposes, don't forget to add proper logging statements.
