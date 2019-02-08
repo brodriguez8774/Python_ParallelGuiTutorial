@@ -98,7 +98,7 @@ LOGGING = {
     'loggers': {
         # All basic logging.
         '': {
-            'handlers': ['console', 'file_debug', 'file_info', 'file_warn'],
+            'handlers': ['console', 'file_debug', 'file_info', 'file_warn', 'file_error'],
             'level': 'DEBUG',
             'propagate': False,
         }
